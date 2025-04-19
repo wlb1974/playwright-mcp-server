@@ -41,6 +41,9 @@ RUN npm ci
 # Copy project files
 COPY . .
 
+# Build TypeScript code
+RUN npm run build
+
 # Install browsers
 RUN npx playwright install chrome
 
