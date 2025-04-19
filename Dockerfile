@@ -51,4 +51,4 @@ EXPOSE 8931
 ENV PLAYWRIGHT_HEADLESS_MODE=true
 
 # Command to run the server
-CMD ["npx", "@playwright/mcp", "--port", "8931", "--headless"] 
+CMD ["npx", "mcp-server-playwright", "--port", "8931", "--headless"] 
