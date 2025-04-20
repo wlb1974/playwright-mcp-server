@@ -287,7 +287,11 @@ ${code.join('\n')}
       if (this.options.launchOptions)
         url.searchParams.set('launch-options', JSON.stringify(this.options.launchOptions));
       const browser = await playwright[this.options.browserName ?? 'chromium'].connect(String(url));
-      const browserContext = await browser.newContext();
+      const browserContext = await browser.newContext(
+        {
+          userAgent: process.env.PLAYWRIGHT_USER_AGENT || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        }
+      );
       return { browser, browserContext };
     }
 
